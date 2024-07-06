@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Lista de Clientes</h1>
+        <hr>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Excluir</th>
+                    <th>Atualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa._id }}</td>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.telefone }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td><a href="/excluir/{{ pessoa._id }}" class="btn btn-danger btn-sm">Excluir</a></td>
+                    <td><a href="/atualizar/{{ pessoa._id }}" class="btn btn-warning btn-sm">Atualizar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table> 
+        <a href="/index" class="btn btn-primary">Voltar</a>  
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
